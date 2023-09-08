@@ -1,7 +1,3 @@
-SELECT * FROM "Couriers" ;
-SELECT * FROM "Orders" ;  
-SELECT * FROM "SequelizeMeta" ;
-
 
 zotov@DESKTOP-69ANJ49 ~
 ПОДКЛЮЧАЮСЬ К СЕРВЕРУ
