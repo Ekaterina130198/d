@@ -1,0 +1,33 @@
+SELECT * FROM "Couriers" ;
+SELECT * FROM "Orders" ;  
+SELECT * FROM "SequelizeMeta" ;
+
+
+zotov@DESKTOP-69ANJ49 ~
+ПОДКЛЮЧАЮСЬ К СЕРВЕРУ
+$ ssh 4a2c4b6f-2a48-4082-8518-479c64d3f6e8@serverhub.praktikum-services.ru -p 4554
+ПОДКЛЮЧАЮСЬ К БАЗЕ ДАННЫХ
+morty@b1b1fd89e442:~$  psql -U morty -d scooter_rent
+Password for user morty:
+psql (11.18 (Debian 11.18-0+deb10u1))
+Type "help" for help.
+ПРОСМАТРИВАЮ ИМЕННА СТОЛБЦОВ В ТАБЛИЦЕ
+$ ssh SELECT * FROM "Couriers" ;
+$ ssh SELECT * FROM "Orders" ;
+В ПОСТМАН СОЗДАЮ КУРЬЕРА, ВХОЖУ В СИСТЕМУ, СОЗДАЮ ЗАКАЗ, ПРИНИМАЮ ЗАКАЗ
+ГРУППИРУЮ ТАБЛИЦЫ И ВЫВОЖУ
+
+
+scooter_rent=# SELECT c.login, COUNT(o."inDelivery") AS "accepted orders"
+scooter_rent-# FROM "Couriers" AS c LEFT JOIN "Orders" AS o ON c.id = o."courierId"
+scooter_rent-# WHERE o."inDelivery" = true
+scooter_rent-# GROUP BY c.login;
+
+ login | accepted orders
+-------+-----------------
+ Kate  |               4
+(1 row)
+
+
+
+
