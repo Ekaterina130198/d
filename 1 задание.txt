@@ -14,8 +14,8 @@ $ ssh SELECT * FROM "Orders" ;
 ГРУППИРУЮ ТАБЛИЦЫ И ВЫВОЖУ
 
 
-scooter_rent=# SELECT c.login, COUNT(o."inDelivery") AS "accepted orders"
-scooter_rent-# FROM "Couriers" AS c LEFT JOIN "Orders" AS o ON c.id = o."courierId"
+scooter_rent=# SELECT c.login, COUNT(o."track") AS "accepted orders"
+scooter_rent-# FROM "Couriers" AS c JOIN "Orders" AS o ON c.id = o."courierId"
 scooter_rent-# WHERE o."inDelivery" = true
 scooter_rent-# GROUP BY c.login;
 
